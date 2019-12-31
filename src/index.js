@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text} from 'react-native';
 
-// import { Container } from './styles';
+import Routes from './routes';
 
 export default function src() {
-  return <Text >Hello World!</Text>
+  return <Routes />
 }
