@@ -10,10 +10,6 @@ module.exports = {
     SharedArrayBuffer: "readonly",
     __DEV__: true
   },
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -22,22 +18,20 @@ module.exports = {
     sourceType: "module"
   },
   plugins: ["react", "jsx-a11y", "import", "react-hooks", "prettier"],
- rules: {
-  "react/jsx-filename-extension": ["error", { extensions: [".js", ".jsx"] }],
-  "import/prefer-default-export": "off",
-  "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
-  "react/jsx-one-expression-per-line": "off",
-  "global-require": "off",
-  "react/static-property-placement": "off",
-  "react/state-in-constructor": "off",
-  "react/jsx-props-no-spreading": "off",
-  "react-native/no-raw-text": "off",
-  "no-param-reassign": "off",
-  "no-underscore-dangle": "off",
-  camelcase: "off",
-  "no-console": ["error", { allow: ["tron"] }],
-  "react-hooks/rules-of-hooks": "error",
-  "react-hooks/exhaustive-deps": "warn"
+  rules: {
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": ["error", { extensions: [".js", ".jsx"] }],
+    "import/prefer-default-export": "off",
+    "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+    "react/jsx-one-expression-per-line": "off",
+    "global-require": "off",
+    "react-native/no-raw-text": "off",
+    "no-param-reassign": "off",
+    "no-underscore-dangle": "off",
+    camelcase: "off",
+    "no-console": ["error", { allow: ["tron"] }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   settings: {
     "import/resolver": {
