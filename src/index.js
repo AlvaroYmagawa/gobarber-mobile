@@ -15,6 +15,6 @@ export default function src() {
         <StatusBar barStyle="light-conttent" backgroundColor="#7159c1" />
         <Routes />
       </PersistGate>
-  </Provider>
+    </Provider>
   );
 }

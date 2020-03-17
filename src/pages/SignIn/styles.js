@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {Platform} from 'react-native' // To see if you app is on Android or IOS plataform
+import { Platform } from 'react-native'; // To see if you app is on Android or IOS plataform
 
 import Button from '~/components/Button';
 import Input from '~/components/Input';
