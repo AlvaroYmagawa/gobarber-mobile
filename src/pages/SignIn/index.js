@@ -1,33 +1,40 @@
 import React, { useRef, useState } from 'react';
-import { Image } from 'react-native';
+import { Image, Alert } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import logo from '~/assets/logo.png';
 import Background from '~/components/Background';
 import { signInRequest } from '~/store/modules/auth/actions';
 
-import { Container, Form, FormInput, SubmitButton, SignLink, SignLinkText} from './styles';
+import {
+  Container, Form, FormInput, SubmitButton, SignLink, SignLinkText,
+} from './styles';
+
 
 // Every page has by default a navigation element to navigate between pages
-export default function SignIn({navigation}) {
+export default function SignIn({ navigation }) {
   const passwordRef = useRef();
   const dispatch = useDispatch();
-  const loading = useSelector(state => state.auth.loading);
+  const loading = useSelector((state) => state.auth.loading);
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  function handleSubmit(){
-    console.tron.log(email, password);
-    dispatch(signInRequest(email, password));
+  function handleSubmit() {
+    console.tron.log('submit');
+    if (email && password) {
+      dispatch(signInRequest(email, password));
+    } else {
+      Alert.alert('Preencha todos os campos');
+    }
   }
 
   return (
-    <Background >
-      <Container >
-      <Image source={logo}/>
+    <Background>
+      <Container>
+        <Image source={logo} />
 
-        <Form>
+        <Form onoSubmit={handleSubmit}>
           <FormInput
             icon="mail-outline"
             keyboardType="email-address"
@@ -38,7 +45,7 @@ export default function SignIn({navigation}) {
             value={email}
             returnKeyType="next" // Change the enter button in keyboard
             // this code below triggerer the enter keyboard enter button
-            onSubmitEditing={() => passwordRef.current.focus()} // this makes focus in the attr that haves a ref
+            onSubmitEditing={() => passwordRef.current.focus()}
           />
 
           <FormInput
@@ -51,7 +58,7 @@ export default function SignIn({navigation}) {
             value={password}
           />
 
-          <SubmitButton loading={loading} onPress={handleSubmit()}>Accessar</SubmitButton>
+          <SubmitButton loading={loading}>Accessar</SubmitButton>
         </Form>
 
         <SignLink onPress={() => navigation.navigate('SignUp')}>

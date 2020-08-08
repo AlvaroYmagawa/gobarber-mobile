@@ -1,14 +1,14 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import { persistReducer } from 'redux-persist';
 
-export default reducers => {
+export default (reducers) => {
   const persistedReducer = persistReducer(
     {
       key: 'goBarber',
       storage: AsyncStorage, // This config is nedeed to mobile env
       whiteList: ['auth', 'user'], // Only persists the reducers inside the whiteList
     },
-    reducers
+    reducers,
   );
 
   return persistedReducer;
